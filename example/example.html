@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>Angular Distribute Transclude - Example Page</title>
+
+    <script src="http://localhost:35729/livereload.js" charset="utf-8"></script>
+    <script src="../node_modules/angular/angular.min.js" charset="utf-8"></script>
+    <script src="../lib/angular-distribute-transclude.js" charset="utf-8"></script>
+
+    <script src="example.app.js" charset="utf-8"></script>
+    <script src="example.directive.js" charset="utf-8"></script>
+</head>
+<body id="app" ng-controller="AppController as vm">
+    <h1>Angular Distribute Transclude - Example Page</h1>
+    <div>This is a variable from the application controller: {{vm.applicationControllerVar}}</div>
+
+    <example-directive some-scope-var-from-parent-with-two-way="vm.twoWayBindingTest"
+                       some-scope-var-from-parent-one-way="{{vm.applicationControllerVar}}"
+                       distribute-transclude>
+
+        <div class="headercontent-from-outside"
+            style="font-style: bold; color: pink;">
+            I am the header content from outside
+        </div>
+
+        <div nav-menu style="font-style: bold; color: green;">
+            I am the navigation menu :)
+            <ul>
+                <li>Link 1</li>
+                <li>Link 2</li>
+            </ul>
+        </div>
+
+        <div allow class="body-content" style="font-style: bold; color: yellow;">
+            I am the navigation menu :)
+        </div>
+    </example-directive>
+</body>
+</html>

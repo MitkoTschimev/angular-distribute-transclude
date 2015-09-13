@@ -1,0 +1,21 @@
+<div>
+    <header trans-select=".classselector">
+        <div>{{vm.v1}}</div>
+        <b>append selector1</b>
+    </header>
+
+    <div>div inside template</div>
+
+    <nav trans-select="[attr-selector]">
+        append selector2
+    </nav>
+
+    <main trans-select=".classand[attrselector]">
+        append selector3
+        {{vm.v2}}
+    </main>
+
+    <footer trans-select=".replacefooter" trans-replace>
+        Footer
+    </footer>
+</div>

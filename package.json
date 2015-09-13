@@ -1,0 +1,37 @@
+{
+  "name": "angularjs-distribute-transclude",
+  "version": "0.0.1",
+  "description": "This is an angularjs directive which offers you a simple way to transclude your html to specific places in your template",
+  "main": "angular-distribute-transclude.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfiwm/angularjs-distribute-transclude.git"
+  },
+  "keywords": [
+    "angular",
+    "transclude"
+  ],
+  "author": "Mitko Tschimev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tfiwm/angularjs-distribute-transclude/issues"
+  },
+  "homepage": "https://github.com/tfiwm/angularjs-distribute-transclude#readme",
+  "dependencies": {
+    "angular": "^1.4.5"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.5",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-junit-reporter": "^0.3.4",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.2.1",
+    "phantomjs": "^1.9.18"
+  }
+}
