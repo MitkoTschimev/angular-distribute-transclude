@@ -1,5 +1,5 @@
 <div>
-    <header style="margin: 20px 0;" trans-select=".headercontent-from-outside">
+    <header style="margin: 20px 0;" content-select=".headercontent-from-outside">
         <div>This is a header element with someScopeVarFromParentWithTwoWay {{vm.someScopeVarFromParentWithTwoWay}}</div>
         and i will get appended a cool element which gets identified to the css selector:
         <b>.headercontent-from-outside</b>
@@ -8,11 +8,11 @@
     <div>Here is a cool hroizontal line inside the directive template</div>
     <hr style="background-color: blue;"></hr>
 
-    <nav style="margin: 20px 0;" trans-select="[nav-menu]">
+    <nav style="margin: 20px 0;" content-select="[nav-menu]">
         Here we will append the element which gets identified by [nav-menu]
     </nav>
 
-    <main style="margin: 20px 0;" trans-select=".body-content[allow]">
+    <main style="margin: 20px 0;" content-select=".body-content[allow]">
         Lets add the content for the page: if we allow it -> body-content[allow];
         {{vm.someScopeVarFromParentOneWay}}
     </main>
