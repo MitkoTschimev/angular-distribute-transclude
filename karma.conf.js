@@ -1,4 +1,6 @@
 module.exports = function(config) {
+    'use strict';
+
     config.set({
         preprocessors: {
             'test/**/*.html': ['ng-html2js']
@@ -16,18 +18,17 @@ module.exports = function(config) {
 
         ngHtml2JsPreprocessor: {
             stripPrefix: 'test/',
-            // the name of the Angular module to create
-            moduleName: "my.templates"
+            moduleName: 'my.templates'
         },
 
         autoWatch: true,
 
         frameworks: ['jasmine'],
 
-        browsers: ['Chrome'],
+        browsers: ['Firefox'],
 
         plugins: [
-            'karma-chrome-launcher',
+            'karma-firefox-launcher',
             'karma-jasmine',
             'karma-junit-reporter',
             'karma-ng-html2js-preprocessor'

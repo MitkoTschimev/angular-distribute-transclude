@@ -1,6 +1,8 @@
+'use strict';
+
 var app = angular.module('test', ['tfiwm.distributetransclude']);
 
-app.controller('AppController', function($interval) {
+app.controller('AppController', function() {
     this.var1 = 'I am the view model of the app controller';
     this.var2 = '';
 });
@@ -13,7 +15,7 @@ app.directive('testDirective', function() {
         },
         restrict: 'E',
         require: 'distributeTransclude',
-        controller: function($interval) {
+        controller: function() {
 
         },
         controllerAs: 'vm',
