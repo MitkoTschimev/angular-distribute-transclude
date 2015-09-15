@@ -1,42 +1,55 @@
 module.exports = function(config) {
-    'use strict';
+  'use strict';
 
-    config.set({
-        preprocessors: {
-            'test/**/*.html': ['ng-html2js']
-        },
+  config.set({
+    preprocessors: {
+      'test/**/*.html': ['ng-html2js'],
+    },
 
-        basePath: './',
+    basePath: './',
 
-        files: [
-            'node_modules/angular/angular.js',
-            'node_modules/angular-mocks/angular-mocks.js',
-            'lib/**/*.js',
-            'test/**/*.js',
-            'test/**/*.html'
-        ],
+    files: [
+        'node_modules/angular/angular.js',
+        'node_modules/angular-mocks/angular-mocks.js',
+        'lib/**/*.js',
+        'test/**/*.js',
+        'test/**/*.html',
+    ],
 
-        ngHtml2JsPreprocessor: {
-            stripPrefix: 'test/',
-            moduleName: 'my.templates'
-        },
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'test/',
+      moduleName: 'my.templates',
+    },
 
-        autoWatch: true,
+    autoWatch: true,
 
-        frameworks: ['jasmine'],
+    frameworks: ['jasmine'],
 
-        browsers: ['Firefox'],
+    browsers: ['Chrome'],
 
-        plugins: [
-            'karma-firefox-launcher',
-            'karma-jasmine',
-            'karma-junit-reporter',
-            'karma-ng-html2js-preprocessor'
-        ],
+    //  Custom launcher for Travis-CI
+    customLaunchers: {
+         chromeTravisCI: {
+           base: 'Chrome',
+           flags: ['--no-sandbox'],
+         },
+       },
 
-        junitReporter: {
-            outputFile: 'test_out/unit.xml',
-            suite: 'unit'
-        }
-    });
+    plugins: [
+        'karma-chrome-launcher',
+        'karma-jasmine',
+        'karma-junit-reporter',
+        'karma-ng-html2js-preprocessor',
+    ],
+
+    junitReporter: {
+      outputFile: 'test_out/unit.xml',
+      suite: 'unit',
+    },
+  });
+
+  // Custom configuration for Travis-CI
+  if (process.env.TRAVIS) {
+    config.browsers = ['chromeTravisCI'];
+  }
 };
