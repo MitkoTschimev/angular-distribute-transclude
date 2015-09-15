@@ -4,7 +4,7 @@
   "description": "This is an angularjs directive which offers you a simple way to transclude your html to specific places in your template",
   "main": "angular-distribute-transclude.js",
   "scripts": {
-    "test": "gulp test",  
+    "test": "gulp test",
     "shipit": "gulp prepare-release"
   },
   "repository": {
@@ -28,6 +28,7 @@
     "angular-mocks": "^1.4.5",
     "gulp": "^3.9.0",
     "gulp-jshint": "^1.11.2",
+    "gulp-uglify": "^1.4.1",
     "gulp-umd": "^0.2.0",
     "gulp-util": "^3.0.6",
     "jasmine-core": "^2.3.4",
