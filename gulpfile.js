@@ -5,6 +5,8 @@ var gutil = require('gulp-util');
 var sh = require('shelljs');
 var karmaServer = require('karma').Server;
 
+gulp.task('default', ['test']);
+
 gulp.task('test', function(done) {
     new karmaServer({
         configFile: __dirname + '/karma.conf.js',
