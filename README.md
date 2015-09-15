@@ -1,7 +1,4 @@
 # angularjs-distribute-transclude
-
-[![Build Status](https://img.shields.io/travis/angular-translate/angular-translate.svg)](https://travis-ci.org/angular-translate/angular-translate) ![License](https://img.shields.io/npm/l/angular-translate.svg)
-
 This is an angularjs directive which offers you a simple way to transclude your html to specific places in your template
 
 Here is an example:
