@@ -5,13 +5,6 @@ var gutil = require('gulp-util');
 var sh = require('shelljs');
 var karmaServer = require('karma').Server;
 
-var testFiles = [
-    'node_modules/angular/angular.js',
-    'node_modules/angular-mocks/angular-mocks.js',
-    'lib/**/*.js',
-    'test/**/*.js'
-];
-
 gulp.task('test', function(done) {
     new karmaServer({
         configFile: __dirname + '/karma.conf.js',
