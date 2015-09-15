@@ -5,7 +5,7 @@
   "main": "angular-distribute-transclude.js",
   "scripts": {
     "test": "gulp test",
-    "shipit": "gulp prepare-release"
+    "clean": "rm -r dist/*"
   },
   "repository": {
     "type": "git",

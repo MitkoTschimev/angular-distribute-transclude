@@ -3,27 +3,42 @@
 var app = angular.module('test', ['tfiwm.distributetransclude']);
 
 app.controller('AppController', function() {
-    this.var1 = 'I am the view model of the app controller';
-    this.var2 = '';
+
 });
 
 app.directive('testDirective', function() {
-    return {
-        scope: {
-            someScopeVarFromParentWithTwoWay: '=',
-            someScopeVarFromParentOneWay: '@'
-        },
-        restrict: 'E',
-        require: 'distributeTransclude',
-        controller: function() {
+  return {
+    scope: {
+      v1: '=',
+      v2: '@',
+    },
+    restrict: 'E',
+    require: 'distributeTransclude',
+    controller: function() {
 
-        },
-        controllerAs: 'vm',
-        bindToController: true,
-        templateUrl: 'test.directive.template.html'
-    };
+    },
+
+    controllerAs: 'vm',
+    bindToController: true,
+    templateUrl: 'test.directive.template.html',
+  };
 });
 
+app.directive('testIncludeDirective', function() {
+  return {
+    scope: {
+      v1: '=',
+      v2: '@',
+    },
+    restrict: 'E',
+    require: 'distributeTransclude',
+    controller: function() {},
+
+    controllerAs: 'vm',
+    bindToController: true,
+    templateUrl: 'test-include.directive.template.html',
+  };
+});
 
 angular.element(document).ready(function() {
   angular.bootstrap(document.getElementById('app'), ['test']);

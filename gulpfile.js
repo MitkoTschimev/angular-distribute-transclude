@@ -24,6 +24,14 @@ gulp.task('test', function(done) {
       }, done).start();
 });
 
+gulp.task('test-dev', function(done) {
+  new karmaServer({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false,
+        autoWatch: true,
+      }, done).start();
+});
+
 gulp.task('jshint-all', function() {
   return gulp.src([paths.libFiles, './example/*.js', 'test/*.js'])
     .pipe(jshint())

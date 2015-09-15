@@ -1,6 +1,11 @@
-<test-directive v1="vm.v2" v2="{{vm.v1}}" distribute-transclude>
+<test-directive v1="vm.v1" v2="{{vm.v2}}" distribute-transclude>
     <div class="classselector">classselector</div>
-    <div attr-selector>attr-selector</div>
+    <div attr-selector>
+        attr-selector
+        <div class="v3">{{vm.v3}}</div>
+    </div>
     <div attrselector class="classand">classandattrselector</div>
-    <div class="replacefooter">Replaced footer</div>
+    <div class="replacefooter">
+        Replaced Footer
+    </div>
 </test-directive>
