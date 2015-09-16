@@ -24,7 +24,7 @@ The directive template:
 </div>
 ```
 
-If you are *distribute-transclude*, don't add the property transclude to your directive config!!!
+If you are using *distribute-transclude*, don't add the property _transclude_ to your directive config!!!
 Because angular can only handle one transclude on an element and this will be done by *distribute-transclude*
 
 ```javascript
