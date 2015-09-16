@@ -1,15 +1,19 @@
 language: node_js
 node_js:
-  - "0.10"
-
+- '0.10'
 before_install:
-
 before_script:
-  - "export CHROME_BIN=chromium-browser"
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-
+- export CHROME_BIN=chromium-browser
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 after_script:
-
 notifications:
   email: false
+deploy:
+  provider: npm
+  email: mitko.tschimev@icloud.com
+  api_key:
+    secure: hhri0cfIhTZVZyO0zX1EgVhWX/GlmlYOpXHORyPH7Oa7oNoJLnadM23ZwrZ47uWO5jPAxM4KW3jE0d+n//4tLV60BMYXaAnvlUOYdj9W71jPvSuQJ7GK40cf66y17hEcuW9XPpkvu7AOinyPvR/vCzhpiuXPK+Lutju5FCEFWAULWFckDlHT1zVYJx3QgYOo2Apoj4qKD4AO9qdgA9xcX2Dw4b4tOgKp9UJ/GlPd8hJ+UD3JyEJMx8CIYAEPxwwAQwzna+VCmUo4vzM8Yor6ov5bBLB7Hlnq1SfEI6/jeJozJ0WyWUtyfKYr23ZdIRAzQQtZRaV05HIMd7xy4RhBGqimMxPV2CccnRj7jNQH2Kuhj2amfjY/c/9enw7ahqDSrF6HvH6oWpSkHgdkc/KZGIh7u3MzMWaxqOpttku4na0W/jJIwsldORs7hd0CfD09m4TrVhnWj2s2DHqFEQNC1aUpTheKUJPmEirwEPEIqPPQPjf7rNttCQYY3+s+dZBMx8Hui2LdqM7Y92c3qAX98GVinpKbLyBnLWFV7vTQuHLqeoDxZ5Y0WXVl4OUnO65QiBtfIs2mWZ4lsjyuSjMkNBnctlKjiZtChE+E3+Qw/KQVpl6u8KFdehASDXSfqE5KuIfqV8lqZrNMK3eAJKtrL/ZQYCJ8RcXYtNeZCspfS5o=
+  on:
+    tags: true
+    repo: tfiwm/angular-distribute-transclude
