@@ -26,7 +26,8 @@ The directive template:
 
 If you are *distribute-transclude*, don't add the property transclude to your directive config!!!
 Because angular can only handle one transclude on an element and this will be done by *distribute-transclude*
-```
+
+```javascript
 app.directive('myCustomHeader', function() {
   return {
     scope: {
@@ -42,7 +43,7 @@ app.directive('myCustomHeader', function() {
     templateUrl: 'my-custom-header.directive.template.html',
   };
 });
-```javascript
+```
 
 ```html
 <my-custom-header distribute-transclude>
