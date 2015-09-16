@@ -1,4 +1,4 @@
-# angularjs-distribute-transclude
+# angular-distribute-transclude
 [![Build Status](https://travis-ci.org/tfiwm/angularjs-distribute-transclude.svg?branch=master)](https://travis-ci.org/tfiwm/angularjs-distribute-transclude)
 
 This is an angularjs directive which offers you a simple way to transclude your html to specific places in your template
