@@ -2,9 +2,13 @@
 
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+var bump = require('gulp-bump');
+var git = require('gulp-git');
+var clean = require('gulp-clean');
 var sh = require('shelljs');
 var jshint = require('gulp-jshint');
 var uglify = require('gulp-uglify');
+var rename = require('gulp-rename');
 var umd = require('gulp-umd');
 var karmaServer = require('karma').Server;
 
@@ -13,18 +17,14 @@ var paths = {
   libFiles: './lib/**.*js',
 };
 
-gulp.task('default', ['build']);
-gulp.task('build', ['jshint', 'umd', 'uglify', 'test']);
-gulp.task('prepare-release', ['jshint-all', 'build']);
-
-gulp.task('test', function(done) {
+gulp.task('karma', function(done) {
   new karmaServer({
         configFile: __dirname + '/karma.conf.js',
         singleRun: true,
       }, done).start();
 });
 
-gulp.task('test-dev', function(done) {
+gulp.task('karma-dev', function(done) {
   new karmaServer({
         configFile: __dirname + '/karma.conf.js',
         singleRun: false,
@@ -55,6 +55,50 @@ gulp.task('umd', function() {
     .pipe(umd())
     .pipe(gulp.dest(paths.build_dir));
 });
+
+gulp.task('clean', function() {
+  return gulp.src(paths.build_dir, { read: false })
+    .pipe(clean());
+});
+
+gulp.task('bump', ['build-shim'], function() {
+  return gulp.src('./package.json')
+    .pipe(bump())
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('build', ['clean'], function() {
+  return gulp.src(paths.libFiles)
+      .pipe(umd())
+      .pipe(gulp.dest(paths.build_dir))
+        .pipe(rename({
+          suffix: '.min',
+        }))
+        .pipe(uglify())
+        .pipe(gulp.dest(paths.build_dir));
+});
+
+gulp.task('tag', ['bump'], function() {
+  var pkg = require('./package.json');
+  var v = 'v' + pkg.version;
+  var message = 'Release ' + v;
+
+  return gulp.src('./')
+    .pipe(git.commit(message))
+    .pipe(git.tag(v, message))
+    .pipe(git.push('origin', 'master', '--tags'))
+    .pipe(gulp.dest('./'));
+});
+
+gulp.task('npm', ['tag'], function(done) {
+  require('child_process').spawn('npm', ['publish'], { stdio: 'inherit' })
+    .on('close', done);
+});
+
+gulp.task('default', ['test', 'build']);
+gulp.task('test', ['jshint', 'karma']);
+gulp.task('ci', ['test', 'build']);
+gulp.task('release', ['npm']);
 
 gulp.task('git-check', function(done) {
   if (!sh.which('git')) {
