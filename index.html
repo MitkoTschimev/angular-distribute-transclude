@@ -54,6 +54,25 @@
     Nice Header :)
 &lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
+<p>If you are using <em>distribute-transclude</em>, don't add the property <em>transclude</em> to your directive config!!!
+Because angular can only handle one transclude on an element and this will be done by <em>distribute-transclude</em></p>
+
+<div class="highlight highlight-source-js"><pre>app.directive(<span class="pl-s"><span class="pl-pds">'</span>myCustomHeader<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>() {
+  <span class="pl-k">return</span> {
+    scope<span class="pl-k">:</span> {
+      v1<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>=<span class="pl-pds">'</span></span>,
+      v2<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>@<span class="pl-pds">'</span></span>,
+    },
+    restrict<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>E<span class="pl-pds">'</span></span>,
+    require<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>distributeTransclude<span class="pl-pds">'</span></span>,
+    <span class="pl-c">// transclude: true &lt;-- Don't do this!</span>
+    <span class="pl-en">controller</span><span class="pl-k">:</span> <span class="pl-k">function</span>() {},
+    controllerAs<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>vm<span class="pl-pds">'</span></span>,
+    bindToController<span class="pl-k">:</span> <span class="pl-c1">true</span>,
+    templateUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>my-custom-header.directive.template.html<span class="pl-pds">'</span></span>,
+  };
+});</pre></div>
+
 <div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">my</span><span class="pl-e">-custom-header</span> <span class="pl-e">distribute-transclude</span>&gt;
     &lt;<span class="pl-ent">div</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>header-profile<span class="pl-pds">"</span></span>&gt;Header Profile&lt;/<span class="pl-ent">div</span>&gt;
     &lt;<span class="pl-ent">nav</span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>header-navbar<span class="pl-pds">"</span></span>&gt;
