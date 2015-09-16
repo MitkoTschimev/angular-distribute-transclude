@@ -61,7 +61,7 @@ gulp.task('clean', function() {
     .pipe(clean());
 });
 
-gulp.task('bump', ['build-shim'], function() {
+gulp.task('bump', ['build'], function() {
   return gulp.src('./package.json')
     .pipe(bump())
     .pipe(gulp.dest('./'));
