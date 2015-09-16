@@ -24,6 +24,26 @@ The directive template:
 </div>
 ```
 
+If you are *distribute-transclude*, don't add the property transclude to your directive config!!!
+Because angular can only handle one transclude on an element and this will be done by *distribute-transclude*
+```
+app.directive('myCustomHeader', function() {
+  return {
+    scope: {
+      v1: '=',
+      v2: '@',
+    },
+    restrict: 'E',
+    require: 'distributeTransclude',
+    // transclude: true <-- Don't do this!
+    controller: function() {},
+    controllerAs: 'vm',
+    bindToController: true,
+    templateUrl: 'my-custom-header.directive.template.html',
+  };
+});
+```javascript
+
 ```html
 <my-custom-header distribute-transclude>
     <div class="header-profile">Header Profile</div>

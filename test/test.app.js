@@ -24,22 +24,6 @@ app.directive('testDirective', function() {
   };
 });
 
-app.directive('testIncludeDirective', function() {
-  return {
-    scope: {
-      v1: '=',
-      v2: '@',
-    },
-    restrict: 'E',
-    require: 'distributeTransclude',
-    controller: function() {},
-
-    controllerAs: 'vm',
-    bindToController: true,
-    templateUrl: 'test-include.directive.template.html',
-  };
-});
-
 angular.element(document).ready(function() {
   angular.bootstrap(document.getElementById('app'), ['test']);
 });
