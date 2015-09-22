@@ -5,8 +5,13 @@
 
 This is an angularjs directive which offers you a simple way to transclude your html to specific places in your template
 
-Here is an example:
+### How to install
 
+```
+npm install angular-distribute-transclude
+```
+
+### Here is an example:
 
 The directive template:
 ```html
