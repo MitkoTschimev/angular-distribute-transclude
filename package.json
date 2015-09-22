@@ -1,6 +1,6 @@
 {
   "name": "angular-distribute-transclude",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "This is an angularjs directive which offers you a simple way to transclude your html to specific places in your template",
   "main": "dist/angular-distribute-transclude.js",
   "scripts": {
