@@ -72,13 +72,27 @@ gulp.task('clean', function() {
 
 gulp.task('bump', ['build'], function() {
     return gulp.src('./package.json')
-        .pipe(bump())
+        .pipe(umd({
+            exports: function() {
+                return 'tfiwmModule';
+            },
+            namespace: function() {
+                return 'tfiwmModule';
+            }
+        }))
         .pipe(gulp.dest('./'));
 });
 
 gulp.task('build', ['clean'], function() {
     return gulp.src(paths.libFiles)
-        .pipe(umd())
+        .pipe(umd({
+            exports: function() {
+                return 'tfiwmModule';
+            },
+            namespace: function() {
+                return 'tfiwmModule';
+            }
+        }))
         .pipe(gulp.dest(paths.build_dir))
         .pipe(rename({
             suffix: '.min',

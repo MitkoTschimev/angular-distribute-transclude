@@ -4,7 +4,7 @@
   } else if (typeof exports === 'object') {
     module.exports = factory();
   } else {
-    root.Angular-distribute-transclude = factory();
+    root.tfiwmModule = factory();
   }
 }(this, function() {
 /**
@@ -85,5 +85,5 @@ var distributeTranscludeDirective = function() {
 var tfiwmModule = angular.module('tfiwm.distributetransclude', []);
 tfiwmModule.directive('distributeTransclude', distributeTranscludeDirective);
 
-return Angular-distribute-transclude;
+return tfiwmModule;
 }));
